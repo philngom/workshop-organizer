@@ -3,6 +3,9 @@ import {
     logout,
     getWorkshops
 } from '../fetch-utils.js';
+import {
+    renderParticipant
+} from '../render-utils.js';
 
 const logoutButton = document.getElementById('logout');
 const workshopsContainerEl = document.querySelector('.workshops-container');
@@ -25,10 +28,14 @@ function displayWorkshops(workshops) {
 
     for (let workshop of workshops) {
         const workshopContainerEl = document.createElement('div');
-        const workshopNameEl = document.createElement('h5');
+        const workshopNameEl = document.createElement('h3');
 
-        workshopNameEl.classList.add('workshop');
+        workshopContainerEl.classList.add('workshop');
         workshopNameEl.textContent = workshop.name;
+        for (let participant of workshop.participants) {
+            const participantContainerEl = renderParticipant(participant);
+            workshopContainerEl.append(participantContainerEl);
+        }
 
         workshopContainerEl.append(workshopNameEl);
         workshopsContainerEl.append(workshopContainerEl);

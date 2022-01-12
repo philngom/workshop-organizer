@@ -5,3 +5,10 @@ export function renderOptionElement(workshop) {
 
     return option;
 }
+
+export function renderParticipant(participant) {
+    const nameEl = document.createElement('p');
+    nameEl.textContent = participant.name;
+    nameEl.classList.add('participant');
+    return nameEl;
+}

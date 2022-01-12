@@ -140,3 +140,7 @@ footer {
     margin: 1em;
     border: 2px solid blue;
 }
+
+.participant {
+    border: 1px solid red;
+}
