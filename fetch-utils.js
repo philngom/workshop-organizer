@@ -38,7 +38,12 @@ export async function logout() {
     return window.location.href = '../';
 }
 
-
+export async function getWorkshops() {
+    const response = await client
+        .from('workshops')
+        .select(`*, participants (*)`);
+    return checkError(response);
+}
 
 function checkError({ data, error }) {
     return error ? console.error(error) : data;
