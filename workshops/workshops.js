@@ -1,7 +1,8 @@
 import {
     checkAuth,
     logout,
-    getWorkshops
+    getWorkshops,
+    deleteParticipant
 } from '../fetch-utils.js';
 import {
     renderParticipant
@@ -35,6 +36,11 @@ function displayWorkshops(workshops) {
         for (let participant of workshop.participants) {
             const participantContainerEl = renderParticipant(participant);
             workshopContainerEl.append(participantContainerEl);
+            participantContainerEl.addEventListener('click', async() => {
+                let id = participant.id;
+                await deleteParticipant(id);
+                location.reload();
+            });
         }
 
         workshopContainerEl.append(workshopNameEl);
