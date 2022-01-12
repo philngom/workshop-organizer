@@ -1,18 +1,23 @@
 // IMPORT MODULES under test here:
-// import { example } from '../example.js';
+import { renderParticipant } from '../render-utils.js';
 
 const test = QUnit.test;
+const skip = QUnit.skip;
 
-test('time to test a function', (expect) => {
+skip('time to test a function', (expect) => {
     //Arrange
     // Set up your arguments and expectations
-    const expected = true;
-    
-    //Act 
+    const participant = {
+        name: 'Dylan'
+    };
+
+    const expected = '<p class="participant">Dylan</p>';
+
+    //Act
     // Call the function you're testing and set the result to a const
-    const actual = true;
+    const actual = renderParticipant(participant);
 
     //Expect
     // Make assertions about what is expected versus the actual result
-    expect.equal(actual, expected);
+    expect.equal(actual.outerHTML, expected);
 });
