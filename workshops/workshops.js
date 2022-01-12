@@ -15,7 +15,7 @@ logoutButton.addEventListener('click', () => {
 
 window.addEventListener('load', async() => {
     const workshops = await getWorkshops();
-
+    console.log(workshops);
     displayWorkshops(workshops);
 });
 
@@ -24,7 +24,6 @@ function displayWorkshops(workshops) {
     workshopsContainerEl.textContent = '';
 
     for (let workshop of workshops) {
-        console.log(workshop);
         const workshopContainerEl = document.createElement('div');
         const workshopNameEl = document.createElement('h5');
 

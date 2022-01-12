@@ -4,12 +4,29 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create a Player</title>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <title>Add a participant</title>
 </head>
 <body>
   <header>
     <a href="../workshops">Return to workshops page</a>
   </header>
+  <main>
+    <section class="participant-form-container">
+      <form class="participant-form">
+        <label for="name">
+          Name:
+          <input type="text" name="name-input">
+        </label>
+        <label for="selection">Select a Workshop:
+          <select class="workshop-dropdown">
+
+          </select>
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
   <script type="module" src="./create.js"></script>
 </body>
 </html>
